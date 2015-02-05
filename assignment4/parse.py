@@ -29,4 +29,34 @@ def get_avg_latlng(arg):
     return "The average lattitude is " + str(lattitudes_average) + ", and the average longtitude is " + str(longtitudes_average) +"."
 
 
-print get_avg_latlng(data)
+def zip_code_barchart(arg):
+    import matplotlib.pyplot as plt
+    zipcodes = []
+    for i in range(15): #There are at most 15 contractors in the data.
+        column = 28 + 7*i
+        for permit in arg:
+            if permit[column] != '':
+                zipcodes.append(permit[column][0:5])
+
+    zipcode_count = {}
+    for zipcode in zipcodes:
+        if zipcode in zipcode_count:
+            zipcode_count[zipcode] = zipcode_count[zipcode] + 1
+        else:
+            zipcode_count[zipcode] = 1
+    
+    width = 1
+    plt.figure(figsize = (20,6))
+    plt.bar(range(len(zipcode_count)), zipcode_count.values(), width, color = 'red')
+    plt.xticks(range(len(zipcode_count)), zipcode_count.keys(), rotation=45, fontsize =7)
+    plt.ylabel('Frequency')
+    plt.title('Frequency by zipcode')
+    plt.savefig('barchart.jpg')
+
+if len(sys.argv) == 1:
+	print get_avg_latlng(data)
+	zip_code_barchart(data)
+elif sys.argv[1] == 'latlong':
+	print get_avg_latlng(data)
+elif sys.argv[1] == 'hist':
+	zip_code_barchart(data)
