@@ -26,7 +26,7 @@ def fetchAlbumInfo(album_id):
     album_info['album_id'] =  data['id']
     album_info['name'] = data['name'] 
     album_info['year'] = data['release_date'][0:4]
-    album_info['popularity'] = str(data['popularity'])
+    album_info['popularity'] = data['popularity']
     
     return album_info
 
