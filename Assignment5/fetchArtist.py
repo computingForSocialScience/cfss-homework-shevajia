@@ -10,7 +10,7 @@ def fetchArtistId(name):
     req = requests.get(url)
     data = req.json() 
     artist_id = data['artists']['items'][0]['id']
-    return artist_id.encode('utf8')
+    return artist_id
     
     
 
@@ -23,10 +23,10 @@ def fetchArtistInfo(artist_id):
     req = requests.get(url)
     data = req.json()
     artist_info = {}
-    artist_info['followers'] = str(data['followers']['total'])
+    artist_info['followers'] = data['followers']['total']
     artist_info['genres'] = data['genres']
     artist_info['id'] = data['id']
     artist_info['name'] = data['name']
-    artist_info['popularity'] = str(data['popularity'])
+    artist_info['popularity'] = data['popularity']
     return artist_info
 
