@@ -2,7 +2,7 @@ import unicodecsv as csv
 import matplotlib.pyplot as plt
 
 def getBarChartData(): #Define a function.
-    f_artists = open('artists.csv') #Open or create a ‘artists.csv'.
+    f_artists = open('artists.csv') #Open or create a 'artists.csv'.
     f_albums = open('albums.csv') #Open or create a 'albums.csv'.
 
     artists_rows = csv.reader(f_artists) #Use csv.reader to read the file.
