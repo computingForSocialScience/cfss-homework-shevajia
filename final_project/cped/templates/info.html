@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<title>{{info[1]}}</title>
+</head>
+<body>
+	<h2>{{info[1]}}</h2>
+	<div class='portrait'>
+		<img src="/static/{{info[0]}}.jpg"  class="imagecache imagecache-resume_pic imagecache-default imagecache-resume_pic_default"> 
+	</div>
+	<tr>
+		<th align = "left">Name (Chinese):</th>
+		<td>{{info[2]}}</td>
+        <br />
+		<th align = "left">Sex:</th>
+		<td>{{info[4]}}</td>
+		<br />
+		<th align = "left">Level of Education:</th>
+		<td>{{info[5]}}</td>
+		<br />
+		<th align = "left">Birth Date:</th>
+		<td>{{info[6]}}</td>
+		<br />
+		<th align = "left">Death Date:</th>
+		<td>{{info[7]}}</td>
+		<br />
+		<th align = "left">Party:</th>
+		<td>{{info[8]}}</td>
+		<br />
+		<th align = "left">Link to Data Source:</th>
+		<td><a href={{info[3]}}>{{ info[3] }}</a></td>
+		<br />
+		<tr/><br />
+	<tr><b>Education</b>
+		<table>
+			<tr>
+		        <td align = "left">Start Date</td>
+				<td align = "left">End Date</td>
+				<td align = "left">Subject</td>
+				<td align = "left">Alma Mater</td>
+			</tr>
+		{% for startdate, enddate, subject_type, alma_mater in edu %}
+			<tr>
+		        <td align = "left">{{startdate}}</td>
+				<td align = "left">{{enddate}}</td>
+				<td align = "left">{{subject_type}}</td>
+				<td align = "left">{{alma_mater}}</td>
+			</tr>
+		{% endfor %}
+        </table>
+	</tr><br />
+	<tr><b>Work Experience</b>
+		<table>
+			<tr>
+		        <td align = "center">Start Year</td>
+		        <td align = "center">Start Month</td>
+				<td align = "center">End Year</td>
+				<td align = "center">End Month</td>
+				<td align = "center">Description</td>
+				<td align = "center">Province</td>
+			</tr>
+		{% for startyear, startmonth, endyear, endmonth, description, pro in exp %}
+			<tr>
+		        <td align = "left">{{startyear}}</td>
+		        <td align = "left">{{startmonth}}</td>
+				<td align = "left">{{endyear}}</td>
+				<td align = "left">{{endmonth}}</td>
+				<td align = "left">{{description}}</td>
+				<td align = "left">{{pro}}</td>
+			</tr>
+		{% endfor %}
+        </table>
+	</tr><br />
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<title>Name List</title>
+</head>
+<body>
+    <h1>Name List</h1>
+	<table>
+		<tr>
+			<th align = "left">Name (Pinyin)</th>
+			<th align = "left">Name (Chinese)</th>
+		</tr>
+	{% for id, namePinyin,nameCHN in namelist %}
+		<tr>
+			<td>
+				<li><a href="/database/{{ id }}">{{ namePinyin }}</a>
+            </td>
+			<td>
+				<li><a href="/database/{{ id }}">{{ nameCHN }}</a>	
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+</body>
+</html>
