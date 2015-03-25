@@ -6,7 +6,7 @@ import json
 dbname="cped"
 host="localhost"
 user="root"
-passwd="Thome1987"
+passwd=""
 db=pymysql.connect(db=dbname, host=host, user=user,passwd=passwd, charset='utf8')
 
 cur = db.cursor()
