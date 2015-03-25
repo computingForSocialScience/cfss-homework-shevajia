@@ -1,7 +1,6 @@
 import pymysql
 import csv
 import goslate
-from io import open
 import cPickle
 import json
 dbname="cped"
@@ -81,6 +80,8 @@ sql_insert_urllist = '''INSERT INTO urllist
 cur.executemany(sql_insert_urllist, url_list)
 db.commit()
 
+
+from io import open
 f_info_list = open('cadre_info_list.csv', 'r', encoding = 'utf8')
 
 info = []
